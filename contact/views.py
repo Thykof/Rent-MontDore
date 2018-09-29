@@ -19,9 +19,9 @@ def contact(request):
             )
             new_message.save()
             # Send email
-            text = "Message from {} | {}\n".format(name, email_address)
-            text += "Subject: " + subject + '\n'
-            text += "Text: " + message
+            text = "Message from {} | {}\n".format(form.cleaned_data['name'], form.cleaned_data['email_address'])
+            text += "Subject: " + form.cleaned_data['subject'] + '\n'
+            text += "Text: " + form.cleaned_data['message']
             send_email(text)
             msg = 'Votre message a bien été envoyé, nous vous réponderons dans les plus bref delais.'
 
