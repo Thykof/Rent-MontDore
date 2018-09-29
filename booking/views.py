@@ -7,6 +7,7 @@ from django.shortcuts import render, redirect
 from .forms import BookingForm
 from booking.data import MONTHS
 from .models import Booking
+from rent_montdore.email import send_email
 
 def booking(request):
     if request.method == 'POST':
@@ -51,6 +52,12 @@ def booking(request):
                     therapy=therapy
                 )
                 new_booking.save()
+                # Send email
+                text = "Booking by {} {} | {}\n".format(first_name, last_name, email_address)
+                text += "Coming date: " + str(coming_date) + '\n'
+                text += "Leaving date: " + str(leaving_date) + '\n'
+                text += "Therapy: " + str(therapy)
+                send_email(text)
                 msg = 'Votre réservation a été prise en compte !'
         else:
             msg = 'Le formulaire est invalide.'

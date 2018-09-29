@@ -2,6 +2,8 @@ from django.shortcuts import render
 
 from contact.forms import ContactForm
 from contact.models import Message
+from rent_montdore.email import send_email
+
 
 # Create your views here.
 
@@ -16,7 +18,11 @@ def contact(request):
                 message = form.cleaned_data['message']
             )
             new_message.save()
-            # Send email to l.seva@free.fr
+            # Send email
+            text = "Message from {} | {}\n".format(name, email_address)
+            text += "Subject: " + subject + '\n'
+            text += "Text: " + message
+            send_email(text)
             msg = 'Votre message a bien été envoyé, nous vous réponderons dans les plus bref delais.'
 
     else:
