@@ -57,7 +57,7 @@ def booking(request):
                 text += "Coming date: " + str(coming_date) + '\n'
                 text += "Leaving date: " + str(leaving_date) + '\n'
                 text += "Therapy: " + str(therapy)
-                send_email(text)
+                send_email(text, "New booking")
                 msg = 'Votre réservation a été prise en compte !'
         else:
             msg = 'Le formulaire est invalide.'

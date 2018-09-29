@@ -22,7 +22,7 @@ def contact(request):
             text = "Message from {} | {}\n".format(form.cleaned_data['name'], form.cleaned_data['email_address'])
             text += "Subject: " + form.cleaned_data['subject'] + '\n'
             text += "Text: " + form.cleaned_data['message']
-            send_email(text)
+            send_email(text, "New message")
             msg = 'Votre message a bien été envoyé, nous vous réponderons dans les plus bref delais.'
 
     else:
