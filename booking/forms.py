@@ -9,11 +9,11 @@ class BookingForm(forms.Form):
     first_name = forms.CharField(label='Votre prénom', max_length=42, error_messages={'required': 'Entrer votre prénom.'})
 
     date_widget = forms.SelectDateWidget(months=MONTHS)
-    coming_date = forms.DateField(label="Date d'arrivée", widget=date_widget, help_text='Date de début du séjour')
-    leaving_date = forms.DateField(label='Date de départ', widget=date_widget, help_text='Date de fin du séjour')
+    coming_date = forms.DateField(label="Date d'arrivée ", widget=date_widget, help_text='Date de début du séjour')
+    leaving_date = forms.DateField(label='Date de départ ', widget=date_widget, help_text='Date de fin du séjour')
 
     email_address = forms.EmailField(label='Votre adresse e-mail', error_messages={'required': 'Entrer votre adresse mail.', 'invalid':'Entrer une adresse mail valide.'})
-    therapy = forms.BooleanField(label='Allez vous en cure ?', required=False)
+    therapy = forms.BooleanField(label='Allez-vous en cure ?', required=False)
 
     def clean(self):
         cleaned_data = super(BookingForm, self).clean()

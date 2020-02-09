@@ -16,7 +16,7 @@
       <a href="{% url "home" %}">Accueil</a>
     </li>
     <li {% if request.resolver_match.url_name == "description" %}class="active"{% endif %}>
-      <a href="{% url "description" %}">Déscription</a>
+      <a href="{% url "description" %}">Description</a>
     </li>
     <li {% if request.resolver_match.url_name == "entrance" %}class="active"{% endif %}>
       <a href="{% url "entrance" %}">Accès</a>
@@ -30,7 +30,7 @@
 Nous sommes heureux de vous proposer une location au Mont-Dore qui bénéficie d'une vue magnifique, de toutes les commodités accessibles à pieds, et d'un garage.</br>
 Visitez le site, et n'hésitez pas à nous contacter pour toute question.</br>
 Nos locations ne sont pas uniquement du samedi au samedi.</br>
-Profitez d'une location de mercrdi à mercredi pour les vacances de la toussaint.</p>
+Profitez d'une location de mercredi à mercredi pour les vacances de la toussaint.</p>
   <p>Nous vous invitons à consulter la <a href="{% url "description" %}">description de l'appartement</a>.</br>
     Vous pouvez faire une <a href="{% url "booking-home-price" %}">demande de location</a>.</br>
     N'hésitez pas à <a href="{% url "contact" %}">nous contacter</a>.</br>
